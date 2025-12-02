@@ -1,0 +1,51 @@
+{
+  "name": "tuxbench",
+  "version": "0.1.0",
+  "description": "TuxBench is a Linux-only desktop benchmarking tool leveraging MangoHud logs.",
+  "main": "build/electron/main.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"vite dev --host --port 5173\" \"npm run electron:dev\"",
+    "electron:dev": "npm run electron:build && wait-on http://localhost:5173 && electron build/electron/main.js",
+    "electron:build": "tsc -p electron/tsconfig.json",
+    "build": "vite build && tsc -p electron/tsconfig.json",
+    "lint": "eslint .",
+    "start": "electron build/electron/main.js"
+  },
+  "keywords": [
+    "linux",
+    "benchmark",
+    "electron",
+    "svelte",
+    "mangohud"
+  ],
+  "author": "TuxBench Team",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@tsconfig/svelte": "^5.0.6",
+    "@types/node": "^24.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
+    "autoprefixer": "^10.4.22",
+    "concurrently": "^9.2.1",
+    "electron": "^39.2.4",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-svelte": "^3.13.0",
+    "globals": "^16.5.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.7.3",
+    "prettier-plugin-svelte": "^3.4.0",
+    "svelte": "^5.45.3",
+    "tailwindcss": "^3.4.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1",
+    "vite": "^7.2.6",
+    "wait-on": "^9.0.3"
+  }
+}
